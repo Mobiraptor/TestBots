@@ -9,7 +9,7 @@ public class SpawnBot : MonoBehaviour
 
     [SerializeField] private BotChars _StatGenerator;
 
-    private List<GameObject> BotInstances;
+    private List<GameObject> BotInstances = new List<GameObject>();
     private GameObject BotObject;
 
     //Spawn {_StartCount} amount of bots. Assing htem random stats. Add spawned bots instances into list
