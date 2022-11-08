@@ -352,9 +352,13 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.VSCode.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
-"Assets/Scripts/Bot.cs"
-"Assets/Scripts/BotChars.cs"
-"Assets/Scripts/SpawnBot.cs"
+"Assets/Scripts/Bots/Bot.cs"
+"Assets/Scripts/Bots/BotChars.cs"
+"Assets/Scripts/Bots/BotCoords.cs"
+"Assets/Scripts/Bots/BotDamage.cs"
+"Assets/Scripts/Bots/BotMovement.cs"
+"Assets/Scripts/Bots/SpawnBot.cs"
+"Assets/Scripts/Camera/MoveIngameCamera.cs"
 -langversion:9.0
 
 /deterministic
