@@ -10,7 +10,7 @@ public class Bot : MonoBehaviour
 
     [Header("Stats")]
     [SerializeField] float _speed;
-    [SerializeField] float _health;
+    [SerializeField] public float _health;
     [SerializeField] public float _damage;
 
     private GameObject Target;
@@ -28,14 +28,6 @@ public class Bot : MonoBehaviour
         GetComponent<Transform>().position = CoordVector;
     }
 
-    public void TakeDamage(float damage)
-    {
-        _health -= damage;
-        if(_health < 0)
-        {
-            Destroy(gameObject);
-        }
-    }
 
     // Update is called once per frame
     void Update()

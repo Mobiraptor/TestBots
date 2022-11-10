@@ -13,9 +13,9 @@ public class BotDamage : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent(out Bot bot))
+        if (other.TryGetComponent(out Target target))
         {
-            bot.TakeDamage(_damage);
+            target.TakeDamage(_damage);
         }
     }
     void Update()

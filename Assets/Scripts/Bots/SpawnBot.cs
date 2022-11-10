@@ -20,11 +20,11 @@ public class SpawnBot : MonoBehaviour
     }
 
     //Spawn {_StartCount} amount of bots. Assing them random stats and position. Add spawned bot instance into list
-    void InitializeBots()
+    void InitializeBot(Vector3 Coordinates)
     {
         BotObject = Instantiate(_BotPrefab);
         BotObject.GetComponent<Bot>().SetCharacteristics(StatGenerator.GetCharateristics());;
-        BotObject.GetComponent<Bot>().SetSpawnCoordinates(CoordsGenerator.GetBotCoordinates());
+        BotObject.GetComponent<Bot>().SetSpawnCoordinates(Coordinates);
         BotInstances.Add(BotObject.gameObject);
     }
 
@@ -32,8 +32,12 @@ public class SpawnBot : MonoBehaviour
     {
         if(i < _StartCount)
         {
-            InitializeBots();
+            InitializeBot(CoordsGenerator.GetBotCoordinates());
             i++;
+        }
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            InitializeBot(Camera.main.ScreenToWorldPoint(Input.mousePosition));
         }
     }
 }

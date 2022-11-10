@@ -2,35 +2,50 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+//using System;
 
 public class BotMovement : MonoBehaviour
 {
     private NavMeshAgent agent;
-    private Bot target;
-    // Start is called before the first frame update
+    public Target target;
+    private Target[] targetsTMP;
+    private List<Target> targets;
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        SetTarget();
     }
 
+    private void GenerateTargetsList()
+    {
+        targetsTMP = FindObjectsOfType<Target>();
+        targets = new List<Target>(targetsTMP);
+    }
     private void SetTarget()
     {
-        var targets = FindObjectsOfType<Bot>();
-        target = targets[Random.Range(0, targets.Length)];
-        //while(target == GetComponentInParent<Bot>())
+        GenerateTargetsList();
+        targets.Remove(GetComponent<Target>());
+        if (targets.Count > 0)
         {
-            //target = targets[Random.Range(0, targets.Length)];
+            target = targets[UnityEngine.Random.Range(0, targets.Count)];
+            agent.destination = target.GetComponent<Transform>().position;
         }
-        agent.destination = target.GetComponent<Transform>().position;
-
     }
+
     // Update is called once per frame
     void Update()
     {
-        if (target==null)
+        GenerateTargetsList();
+        if ((target==null) && (targets.Count>1))
         {
             SetTarget();
+        }
+        if(!(target == null))
+        {
+            if (Vector3.Distance(agent.destination, target.GetComponent<Transform>().position) > 1.0f)
+            {
+                agent.destination = target.GetComponent<Transform>().position;
+            }
         }
     }
 }
