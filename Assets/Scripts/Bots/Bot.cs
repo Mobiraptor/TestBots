@@ -9,9 +9,12 @@ public class Bot : MonoBehaviour
     private Dictionary<string,float> Stats;
 
     [Header("Stats")]
-    [SerializeField] float _speed;
+    [SerializeField] public float _speed;
     [SerializeField] public float _health;
     [SerializeField] public float _damage;
+
+    [Header("Score")]
+    [SerializeField] public int _score = 0;
 
     private GameObject Target;
 

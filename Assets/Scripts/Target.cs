@@ -14,12 +14,14 @@ public class Target : MonoBehaviour
         }
     }
 
-    public void TakeDamage(float damage)
+    public bool TakeDamage(float damage)
     {
         _health -= damage;
         if (_health < 0)
         {
             Destroy(gameObject);
+            return true;
         }
+        return false;
     }
 }

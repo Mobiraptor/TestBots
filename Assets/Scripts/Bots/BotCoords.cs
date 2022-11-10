@@ -4,14 +4,8 @@ using UnityEngine;
 
 public class BotCoords : MonoBehaviour
 {
-    /*[Header("x")]
-    [SerializeField] private float xmin;
-    [SerializeField] private float xmax;
-    [Header("y")]*/
     [SerializeField] private float y;
-    /*[Header("z")]
-    [SerializeField] private float zmin;
-    [SerializeField] private float zmax;*/
+
 
     [SerializeField] private MeshRenderer PlaneBounds;
 
@@ -24,9 +18,7 @@ public class BotCoords : MonoBehaviour
         BotWantedCoords = GenerateCoordinates();
         while (Physics.BoxCast(BotWantedCoords, new Vector3(2, 2, 2), new Vector3(2, 2, 2), Quaternion.Euler(0, 0, 0), 2))
         {
-            //Debug.Log("changed coords");
             BotWantedCoords = GenerateCoordinates();
-            //BotObject.GetComponent<MeshRenderer>().material.color = Color.red;
         }
         return BotWantedCoords;
 

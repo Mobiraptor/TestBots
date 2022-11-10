@@ -35,9 +35,9 @@ public class SpawnBot : MonoBehaviour
             InitializeBot(CoordsGenerator.GetBotCoordinates());
             i++;
         }
-        if (Input.GetKeyDown(KeyCode.Mouse0))
-        {
-            InitializeBot(Camera.main.ScreenToWorldPoint(Input.mousePosition));
-        }
+       // if (Input.GetKeyDown(KeyCode.Mouse0))
+       // {
+         //   InitializeBot(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+       // }
     }
 }

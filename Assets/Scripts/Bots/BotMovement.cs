@@ -14,6 +14,7 @@ public class BotMovement : MonoBehaviour
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        agent.speed = GetComponent<Bot>()._speed;
     }
 
     private void GenerateTargetsList()
@@ -42,9 +43,13 @@ public class BotMovement : MonoBehaviour
         }
         if(!(target == null))
         {
-            if (Vector3.Distance(agent.destination, target.GetComponent<Transform>().position) > 1.0f)
+            if (Vector3.Distance(agent.destination, target.GetComponent<Transform>().position) > 1f)
             {
                 agent.destination = target.GetComponent<Transform>().position;
+            }
+            if(Vector3.Distance(target.GetComponent<Transform>().position, GetComponent<Transform>().position) < 2f)
+            {
+                GetComponent<BotDamage>().DoDamage(target);
             }
         }
     }
