@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+//Скрипт кнопки перехода в игру
 public class ToGame : MonoBehaviour
 {
     [SerializeField] private MoveLoadingBot loadingScript;
@@ -14,9 +15,13 @@ public class ToGame : MonoBehaviour
         toMenuButton.onClick.AddListener(TaskOnClick);
     }
 
+    //При нажатии в скрипт движущегося бота передаётся параметр, задающий следующую сцену. Запуск сцены загрузки
     void TaskOnClick()
     {
         loadingScript.nextSceneName = "Game";
         SceneManager.LoadScene("Load", LoadSceneMode.Single);
     }
 }
+
+//Мда... можно же было в одном скрипте сделать...
+//Ну уже поздно. Потом. В будущем.

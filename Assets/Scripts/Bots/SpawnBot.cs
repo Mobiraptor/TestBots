@@ -4,22 +4,19 @@ using UnityEngine;
 
 public class SpawnBot : MonoBehaviour
 {
-    [SerializeField] private GameObject _BotPrefab;
-    [SerializeField] private int _StartCount;
-    private int i = 0;
 
-    [SerializeField] private BotChars StatGenerator;
-    [SerializeField] private BotCoords CoordsGenerator;
+    [SerializeField] private GameObject _BotPrefab; //Поле для ссылки на префаб бота
+    [SerializeField] private int _StartCount; //поле для количества ботов
+    private int i = 0; //Счётчик для цикла создания ботов
 
-    private List<GameObject> BotInstances = new();
+    [SerializeField] private BotChars StatGenerator; //объект-генератор статов
+    [SerializeField] private BotCoords CoordsGenerator; //объект-генератор координат
+
+    private List<GameObject> BotInstances = new(); // Инициализация списка, куда будут записываться созданные боты
     private GameObject BotObject;
 
 
-    void Start()
-    {
-    }
-
-    //Spawn {_StartCount} amount of bots. Assing them random stats and position. Add spawned bot instance into list
+    //Создать _StartCount Количество ботов. Выдать им рандомные статы и координаты для спавна. Созданный бот добавляется в список
     void InitializeBot(Vector3 Coordinates)
     {
         BotObject = Instantiate(_BotPrefab);
@@ -28,6 +25,7 @@ public class SpawnBot : MonoBehaviour
         BotInstances.Add(BotObject.gameObject);
     }
 
+    //каждый кадр создаётся бот. Не в одном кадре
     private void Update()
     {
         if(i < _StartCount)
@@ -35,9 +33,5 @@ public class SpawnBot : MonoBehaviour
             InitializeBot(CoordsGenerator.GetBotCoordinates());
             i++;
         }
-       // if (Input.GetKeyDown(KeyCode.Mouse0))
-       // {
-         //   InitializeBot(Camera.main.ScreenToWorldPoint(Input.mousePosition));
-       // }
     }
 }

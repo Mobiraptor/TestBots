@@ -4,32 +4,29 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.SceneManagement;
 
+//Скрипт для движения бота во время загрузки. По окончании движения переключает сцену
 public class MoveLoadingBot : MonoBehaviour
 {
     private NavMeshAgent agent;
-    private Vector3 startPosition;
-    public string nextSceneName;
-    public float _timertmp;
-    public float _timerMax;
-    private int _distance = 30;
+    private Vector3 startPosition; //Начальная позиция бота
+    public string nextSceneName; //Имя сцены, на которую переключится
+    private int _distance = 30; //Дистанция, которую нужно будет проехать боту для переключения сцены
 
-    // Start is called before the first frame update
+    //Вычисление начальных координат бота. Инициализация компонента NavMesh, задание координат для движения и отправка по этим координатам.
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         agent.destination = GetComponent<Transform>().position + new Vector3(_distance, 0,0);
         startPosition = GetComponent<Transform>().position;
-        _timerMax = _distance/agent.speed+1f;
 
     }
     private void Update()
     {
-        if(_timerMax <= _timertmp)
+        //Проверяет, что бот доехал
+        if(Vector3.Distance(startPosition,agent.GetComponent<Transform>().position)>_distance)
         {
             Debug.Log(nextSceneName);
             SceneManager.LoadScene(nextSceneName, LoadSceneMode.Single);
-        }
-        _timertmp += Time.deltaTime;
-        
+        }      
     }
 }
