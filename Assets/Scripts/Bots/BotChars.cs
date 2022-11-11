@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BotChars : MonoBehaviour
 {
+    //Блок для задания максимальных и минимальных статов в инспекторе
     [Header("Speed")]
     [SerializeField] private float minSpeed;
     [SerializeField] private float maxSpeed;
@@ -16,6 +17,7 @@ public class BotChars : MonoBehaviour
     [SerializeField] private float minDamage;
     [SerializeField] private float maxDamage;
 
+    //Формирование словаря со статами для передачи боту
     public Dictionary<string,float> GetCharateristics()
     {
         Dictionary<string, float> Stats = new Dictionary<string, float>()
@@ -27,6 +29,7 @@ public class BotChars : MonoBehaviour
         return Stats;
     }
 
+    //Генерация стата
     private float GenerateCharacteristics(float min, float max)
     {
         return Random.Range(min, max);

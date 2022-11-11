@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-//using System;
+
 
 public class BotMovement : MonoBehaviour
 {
@@ -11,21 +11,25 @@ public class BotMovement : MonoBehaviour
     private Target[] targetsTMP;
     private List<Target> targets;
 
+    //Присваивает агенту экземпляр компонента NavMeshAgent для этого бота. Получает значение скорости из собсственного скрипта бота и присваевает его своему компоненту NavMeshAgent
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         agent.speed = GetComponent<Bot>()._speed;
     }
 
+    //Создаёт список доступных целей. Собирает все объекты, содержащие скрипт Target. Убирает из списка себя
     private void GenerateTargetsList()
     {
         targetsTMP = FindObjectsOfType<Target>();
         targets = new List<Target>(targetsTMP);
+        targets.Remove(GetComponent<Target>());
     }
+
+    //Убирает из списка всех 
     private void SetTarget()
     {
         GenerateTargetsList();
-        targets.Remove(GetComponent<Target>());
         if (targets.Count > 0)
         {
             target = targets[UnityEngine.Random.Range(0, targets.Count)];
