@@ -6,16 +6,16 @@ using UnityEngine.AI;
 
 public class Bot : MonoBehaviour
 {
-    [Header("Stats")] //отображение статов в инспекторе/Stats visualtisation in inspector
+    [Header("Stats")] //Г®ГІГ®ГЎГ°Г Г¦ГҐГ­ГЁГҐ Г±ГІГ ГІГ®Гў Гў ГЁГ­Г±ГЇГҐГЄГІГ®Г°ГҐ/Stats visualisation in inspector
     [SerializeField] public float _speed;
     [SerializeField] public float _health;
     [SerializeField] public float _damage;
 
-    //Объект цели
+    //ГЋГЎГєГҐГЄГІ Г¶ГҐГ«ГЁ
     //Target object
     private GameObject Target;
 
-    //Установка случайных характеристик, полученных от спавнера
+    //Г“Г±ГІГ Г­Г®ГўГЄГ  Г±Г«ГіГ·Г Г©Г­Г»Гµ ГµГ Г°Г ГЄГІГҐГ°ГЁГ±ГІГЁГЄ, ГЇГ®Г«ГіГ·ГҐГ­Г­Г»Гµ Г®ГІ Г±ГЇГ ГўГ­ГҐГ°Г 
     //Bot stats setter
     public void SetCharacteristics(Dictionary<string, float> GotStats)
     {
@@ -24,7 +24,7 @@ public class Bot : MonoBehaviour
         _damage = GotStats["Damage"];
     }
 
-    //Установка случайных координат, полученных от спавнера
+    //Г“Г±ГІГ Г­Г®ГўГЄГ  Г±Г«ГіГ·Г Г©Г­Г»Гµ ГЄГ®Г®Г°Г¤ГЁГ­Г ГІ, ГЇГ®Г«ГіГ·ГҐГ­Г­Г»Гµ Г®ГІ Г±ГЇГ ГўГ­ГҐГ°Г 
     //Bot spawn coordinates setter
     public void SetSpawnCoordinates(Vector3 CoordVector)
     {
