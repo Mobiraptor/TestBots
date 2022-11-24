@@ -361,7 +361,7 @@
 "Assets/Scripts/Camera/MoveIngameCamera.cs"
 "Assets/Scripts/Loading/ChangeScene.cs"
 "Assets/Scripts/Loading/MoveLoadingBot.cs"
-"Assets/Scripts/Target.cs"
+"Assets/Scripts/Target/Target.cs"
 -langversion:9.0
 
 /deterministic

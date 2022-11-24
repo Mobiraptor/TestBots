@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class ChangeScene : MonoBehaviour
 {
+    //—сылки на скрипт загрузки и на сцену, котора€ должна быть загружена после
+    //links on loading script and scene that should be loaded after loading
     [SerializeField] private MoveLoadingBot loadingScript;
     [SerializeField] private string _scene;
 

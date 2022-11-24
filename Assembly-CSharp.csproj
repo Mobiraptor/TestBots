@@ -63,7 +63,7 @@
     <Compile Include="Assets\Scripts\Bots\BotChars.cs" />
     <Compile Include="Assets\Scripts\Bots\BotMovement.cs" />
     <Compile Include="Assets\Scripts\Bots\BotDamage.cs" />
-    <Compile Include="Assets\Scripts\Target.cs" />
+    <Compile Include="Assets\Scripts\Target\Target.cs" />
     <Compile Include="Assets\Scripts\Bots\SpawnBot.cs" />
     <Compile Include="Assets\Scripts\Camera\MoveIngameCamera.cs" />
   </ItemGroup>

@@ -100,7 +100,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1132311563406152060}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: -0.015, y: 0.015, z: 1}
   m_ConstrainProportionsScale: 0
@@ -634,7 +634,6 @@ MonoBehaviour:
   _speed: 0
   _health: 0
   _damage: 0
-  _score: 0
 --- !u!114 &-3457692555914784367
 MonoBehaviour:
   m_ObjectHideFlags: 0
