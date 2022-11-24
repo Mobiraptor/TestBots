@@ -5,20 +5,23 @@ using UnityEngine;
 public class BotCoords : MonoBehaviour
 {
     //Стандартная высота спавна (пока статичная, так как все спавнятся на плейне)
+    //Height of spawn
     [SerializeField] private float y;
 
     //Сюда передаётся объект (или объекты, в будущем), на которых ботам можно спавниться
+    //Plane (Planes in future) where bot can spawn
+
     [SerializeField] private MeshRenderer PlaneBounds;
 
-    private Vector3 CoordVector;
     private Vector3 BotWantedCoords;
 
     //Формирование валидных координатов. Вызывает метод для генерации координат, пока не получит такие, где никого нет в пределах квадрата со стороной 2
-    //По идее должно исключить появление ботов в стенах, но чёт как-то не всегда работает...
+    //Coordinates passer. Checks if there is another object in wanted coordinates. Passes coordinates if finds no obstacles
+
     public Vector3 GetBotCoordinates()
     {
         BotWantedCoords = GenerateCoordinates();
-        while (Physics.BoxCast(BotWantedCoords, new Vector3(2, 2, 2), new Vector3(2, 2, 2), Quaternion.Euler(0, 0, 0), 2))
+        while (Physics.BoxCast(BotWantedCoords, new Vector3(2, 2, 2), new Vector3(2, 2, 2), Quaternion.Euler(0, 0, 0), 2))    //По идее должно исключить появление ботов в стенах, но чёт как-то не всегда работает...
         {
             BotWantedCoords = GenerateCoordinates();
         }
@@ -27,8 +30,9 @@ public class BotCoords : MonoBehaviour
     }
 
     //Генерация координатов
+    //spawn coordinates generation
     private Vector3 GenerateCoordinates()
     {
-        return CoordVector = new Vector3(Random.Range(PlaneBounds.bounds.min.x + 1, PlaneBounds.bounds.max.x - 1), y, Random.Range(PlaneBounds.bounds.min.z + 1, PlaneBounds.bounds.max.z - 1));
+        return new Vector3(Random.Range(PlaneBounds.bounds.min.x + 1, PlaneBounds.bounds.max.x - 1), y, Random.Range(PlaneBounds.bounds.min.z + 1, PlaneBounds.bounds.max.z - 1));
     }
 }

@@ -11,6 +11,8 @@ public class ChangeScene : MonoBehaviour
     [SerializeField] private MoveLoadingBot loadingScript;
     [SerializeField] private string _scene;
 
+    //Инициализация кнопки. Добавление ивента нажатия на кнопку в EventHandler
+    //Button init. Adding listener to EventeHandler waiting for click on button
     void Start()
     {
         Button toMenuButton = GetComponent<Button>();
@@ -18,6 +20,7 @@ public class ChangeScene : MonoBehaviour
     }
 
     //При нажатии в скрипт движущегося бота передаётся параметр, задающий следующую сцену. Запуск сцены загрузки
+    //On button click passes to loading script scene that should be loaded after loading. Starting loading scene
     void TaskOnClick()
     {
         loadingScript.nextSceneName = _scene;
